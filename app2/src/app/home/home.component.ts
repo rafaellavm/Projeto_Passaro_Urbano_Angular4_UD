@@ -8,6 +8,7 @@ import {Oferta} from '../shared/oferta.model';
   styleUrls: ['./home.component.css'],
   providers: [OfertasService]
 })
+
 export class HomeComponent implements OnInit {
 
   public ofertas: Oferta[];
@@ -21,7 +22,10 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas2()
           .then((ofertas: Oferta[]) => {
             this.ofertas = ofertas;
-          })
+            //console.log(this.ofertas);
+          },
+          (param: any) => {console.log(param)}
+        );
     
   }
 
