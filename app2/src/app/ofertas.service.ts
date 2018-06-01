@@ -63,9 +63,11 @@ export class OfertasService {
         return new Promise((resolve, reject) =>{
 
             //algum tipo de processamento, que ao finalizar, chama a função resolve ou a função reject
-            let deu_certo = false;
+            let deu_certo = true;
             if(deu_certo){
-                resolve(this.ofertas);
+                //resolve(this.ofertas)
+                //causando uma latência fake
+                setTimeout(() => resolve(this.ofertas),3000);
             }
             else{
                 reject({
@@ -73,6 +75,17 @@ export class OfertasService {
                     mensagem_erro: 'Servidor não encontrado'
                 });
             }
+        })
+        .then((ofertas: Oferta[])=>{
+            //esse then() que vai ser retornado. Pode fazer algum tratamento antes no resultado
+            //pode usar vários then()
+            ofertas[0].titulo = "Burguer Rafaela";
+            console.log('primeiro then');
+            return ofertas;
+        }).then((ofertas: Oferta[])=>{
+            ofertas[1].titulo = "Mexicano da Rafaela";
+            console.log('segundo then');
+            return ofertas;
         });
 
     }

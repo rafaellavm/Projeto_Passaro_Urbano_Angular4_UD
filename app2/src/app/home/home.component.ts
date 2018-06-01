@@ -22,11 +22,12 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas2()
         
         .then((ofertas: Oferta[]) => {
+          console.log('A função resolve() foi resolvida depois de 3 segundos');
             this.ofertas = ofertas;
             //console.log(this.ofertas);
           })
         .catch((param : any) =>{
-          console.log("Erro usando catch: " ,param);
+          console.log(param);
         });
     
   }
