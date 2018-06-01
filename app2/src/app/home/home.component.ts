@@ -20,12 +20,14 @@ export class HomeComponent implements OnInit {
 
     //this.ofertas = this.ofertasService.getOfertas();
     this.ofertasService.getOfertas2()
-          .then((ofertas: Oferta[]) => {
+        
+        .then((ofertas: Oferta[]) => {
             this.ofertas = ofertas;
             //console.log(this.ofertas);
-          },
-          (param: any) => {console.log(param)}
-        );
+          })
+        .catch((param : any) =>{
+          console.log("Erro usando catch: " ,param);
+        });
     
   }
 
