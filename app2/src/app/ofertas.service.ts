@@ -82,9 +82,17 @@ export class OfertasService {
             ofertas[0].titulo = "Burguer Rafaela";
             console.log('primeiro then');
             return ofertas;
-        }).then((ofertas: Oferta[])=>{
+        })
+        .then((ofertas: Oferta[])=>{
             ofertas[1].titulo = "Mexicano da Rafaela";
             console.log('segundo then');
+            
+            return new Promise((resolve2, reject2) =>{
+                setTimeout(() => resolve2(ofertas),3000);
+            });
+        })
+        .then((ofertas: Oferta[])=>{
+            console.log('terceiro then sendo executado apoos 3 segundos pois estava esperando promise ser resolvida');
             return ofertas;
         });
 
