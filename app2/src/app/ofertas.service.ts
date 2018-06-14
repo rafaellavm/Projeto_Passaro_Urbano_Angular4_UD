@@ -8,15 +8,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class OfertasService {
 
-    constructor(private http: Http) {
-
-    }
+    constructor(private http: Http) { }
 
     public getOfertas(): Promise<Oferta[]> {
 
         //efetuar uma requisição http
         //retornar uma promise Ofertas[]
-         return this.http.get('http://localhost:3000/ofertas')
+        return this.http.get('http://localhost:3000/ofertas?destaque=true')
             .toPromise()
             .then((resposta: any) => resposta.json())
     }
