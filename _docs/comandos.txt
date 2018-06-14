@@ -1,1 +1,10 @@
 json-server --watch banco_de_dados.json
+
+-------------
+
+1) criar novo componente no angular
+
+ng g c restaurantes --spec=false
+
+
+--spec=false = não cria arquivo de teste
