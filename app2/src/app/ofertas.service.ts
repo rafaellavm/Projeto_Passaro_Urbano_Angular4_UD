@@ -1,6 +1,13 @@
 import {Oferta} from './shared/oferta.model';
+import {Http} from '@angular/http';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class OfertasService {
+    
+    constructor(private http: Http){
+
+    }
 
     public ofertas: Array<Oferta> = [
         {
@@ -88,7 +95,7 @@ export class OfertasService {
             console.log('segundo then');
             
             return new Promise((resolve2, reject2) =>{
-                setTimeout(() => resolve2(ofertas),3000);
+                setTimeout(() => resolve2(ofertas),500);
             });
         })
         .then((ofertas: Oferta[])=>{
