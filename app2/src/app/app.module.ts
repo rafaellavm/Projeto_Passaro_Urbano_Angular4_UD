@@ -4,7 +4,7 @@ import {HttpModule} from '@angular/http';
 
 //importando as rotas
 import {RouterModule} from '@angular/router';
-import {ROUTES} from './app.routes';
+import {ROUTES} from './app.routes'; //importando o routes de app.routes.ts
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';

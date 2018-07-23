@@ -21,12 +21,11 @@ export class HomeComponent implements OnInit {
     this.ofertasService.getOfertas()
         
         .then((ofertas: Oferta[]) => {
-          
-          this.ofertas = ofertas;
-          console.log(ofertas);
+            this.ofertas = ofertas;
+            console.log(ofertas);
           })
         .catch((param : any) =>{
-          console.log(param);
+            console.log(param);
         });
   }
 }
