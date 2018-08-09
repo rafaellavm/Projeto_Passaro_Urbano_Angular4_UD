@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class OfertaComponent implements OnInit {
 
-  private route: ActivatedRoute;
+  private route: ActivatedRoute;  
 
   constructor(route:ActivatedRoute) { 
     this.route = route;
@@ -19,6 +19,13 @@ export class OfertaComponent implements OnInit {
     //recupera o id da rota
     //estamos recebendo um snapshot da rota que está ativa no momento
     console.log("id recuperado na rota: " + this.route.snapshot.params['id']);
+
+    //outra forma de recuperar o id da rota
+    //subscribe: permite encaminhar uma função de callback
+    this.route.params.subscribe((parametro: any) => {
+      console.log(parametro.id);
+    });
+
   }
 
 }
