@@ -25,4 +25,12 @@ export class OfertasService {
         .then((resposta: any) => resposta.json());
     }
 
+    public getOfertaPorId(id: number): Promise<Oferta>{
+        return this.http.get(`http://localhost:3000/ofertas?id=${id}`)
+        .toPromise()
+       .then((resposta: any) => 
+           resposta.json().shift()//método shift():  extrai a primeira posição de um array
+        );
+    }
+
 }
